@@ -1,0 +1,86 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    background-color: rgb(91, 120, 162);
+    background-image: url("OtherShitterRat.jpg");
+    background-size: 20% auto;
+    background-repeat: repeat;
+    font-family: "Bebas Neue";
+    position: relative; /* Ensure the body is the reference for absolute positioning */
+}
+
+h1 {
+    color: white;
+    font-size: 150px;
+    margin: 0;
+    padding: 0;
+    position: absolute; /* Position the h1 absolutely */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset to truly center */
+    z-index: 1; /* Ensure the main text is above the shadow text */
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+p {
+    font-size: 50px;
+    margin: 0; /* Remove default margin */
+    position: absolute; /* Position the p absolutely */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Offset to truly center */
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.volume-control {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+}
+.volume-control input[type="range"] {
+    width: 200px;
+}
+
+@keyframes colorChange {
+    0% {
+        color: #e81416;
+    }
+    16.5% {
+        color: #ffa500;
+    }
+    33% {
+        color: #faeb36;
+    }
+    49.5% {
+        color: #79c314;
+    }
+    66% {
+        color: #487de7;
+    }
+    72.5% {
+        color: #4b369d;
+    }
+    100% {
+        color: #70369d;
+    }
+}
+
+.rainbow {
+    animation: colorChange 1s infinite;
+}
+
+audio {
+    width: 300px;
+}

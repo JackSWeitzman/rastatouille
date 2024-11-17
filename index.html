@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Rastatouille</title>
+    <style>
+        /* Custom styles for the volume control */
+        .volume-control {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .volume-control input[type="range"] {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <audio id="myAudio">
+        <source src="SkillinJah Ft. Josh Heinrichs _Emergency Spliff_ 2011 GanJah Records.m4a" type="audio/mpeg">
+    </audio>
+    <div class="volume-control">
+        <label class="rainbow" style="font-size: 40px;" for="volumeRange">Volume: </label>
+        <input type="range" id="volumeRange" min="0" max="1" step="0.01" value="0.5">
+    </div>
+    <script>
+        document.addEventListener('click', function() {
+            var audio = document.getElementById('myAudio');
+            audio.play();
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('myAudio');
+            var volumeRange = document.getElementById('volumeRange');
+
+            audio.volume = volumeRange.value;
+
+            volumeRange.addEventListener('input', function() {
+                audio.volume = this.value;
+            });
+        });
+
+        window.onload = function() {
+            const h1 = document.querySelector('h1');
+            const p = document.querySelector('p');
+
+            function positionP() {
+                const h1Rect = h1.getBoundingClientRect();
+                p.style.top = `${h1Rect.bottom + 10}px`; // 10px gap between h1 and p
+            }
+
+            positionP();
+            window.addEventListener('resize', positionP); // Reposition on window resize
+        };
+    </script>
+    <h1 class="rainbow">$Rastatouille</h1>
+    <p class="rainbow">CLICK ANYWHERE</p>
+</body>
+</html>
